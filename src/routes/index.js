@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '../store';
+import store from '@/store/index';
 // import LoginPage from '@/views/LoginPage.vue';
 // import SignupPage from '@/views/SignupPage.vue';
 
@@ -24,23 +24,17 @@ const router = new VueRouter({
     {
       path: '/main',
       component: () => import('@/views/MainPage.vue'),
-      meta: {
-        auth: true,
-      },
+      meta: { auth: true },
     },
     {
       path: '/add',
       component: () => import('@/views/PostAddPage.vue'),
-      meta: {
-        auth: true,
-      },
+      meta: { auth: true },
     },
     {
       path: '/post/:id',
       component: () => import('@/views/PostEditPage.vue'),
-      meta: {
-        auth: true,
-      },
+      meta: { auth: true },
     },
     {
       path: '*',
