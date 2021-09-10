@@ -23,18 +23,22 @@
 </template>
 
 <script>
+import { deleteCookie } from '@/utils/cookies';
 export default {
   computed: {
     isUserLogin() {
       return this.$store.getters.isLogin;
     },
     logoLink() {
-      return this.$store.gettes.isLogin ? '/main' : '/login';
+      return this.$store.getters.isLogin ? '/main' : '/login';
     },
   },
   methods: {
     logoutUser() {
       this.$store.commit('clearUsername');
+      this.$store.commit('clearToken');
+      deleteCookie('til_auth');
+      deleteCookie('til_user');
       this.$router.push('/login');
     },
   },
